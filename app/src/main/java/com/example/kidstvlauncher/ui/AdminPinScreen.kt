@@ -16,6 +16,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -43,7 +44,7 @@ fun AdminPinScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF1F8E9)), // Light Green background
+            .background(Color.White), // Light Green background
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -53,7 +54,7 @@ fun AdminPinScreen(navController: NavController) {
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(16.dp)),
             colors = CardDefaults.cardColors(
-                containerColor = Color(0xFFFFF9C4)
+                containerColor = Color(0xFFEEDEF6)
             )// Yellow Card
         ) {
             Column(
@@ -64,7 +65,7 @@ fun AdminPinScreen(navController: NavController) {
                     text = "Enter Admin PIN",
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFF795548)
+                    color = Color.Black
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 OutlinedTextField(
@@ -73,7 +74,14 @@ fun AdminPinScreen(navController: NavController) {
                     label = { Text("PIN") },
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberPassword),
                     visualTransformation = PasswordVisualTransformation(),
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    colors =OutlinedTextFieldDefaults.colors(
+                        focusedBorderColor = Color.Black,
+                        unfocusedBorderColor = Color.Black,
+                        cursorColor = Color.Black,
+                        unfocusedLabelColor = Color.Black,
+                        focusedLabelColor = Color.Black
+                    )
                 )
                 Spacer(modifier = Modifier.height(24.dp))
                 Button(
@@ -85,7 +93,7 @@ fun AdminPinScreen(navController: NavController) {
                         }
                     },
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFFD32F2F) // Red button
+                        containerColor = Color.Black// Red button
                     )
                 ) {
                     Text("Submit", color = Color.White, fontSize = 18.sp)
