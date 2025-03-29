@@ -25,6 +25,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -50,7 +51,7 @@ fun AdminDashboardScreen(navController: NavController, approvedApps: MutableSet<
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFBBDEFB)) // Blue background
+            .background(Color.White) // Blue background
     ) {
         Text(
             text = "Admin Dashboard",
@@ -100,7 +101,7 @@ fun AdminAppItem(app: ApplicationInfo, pm: PackageManager, approvedApps: Mutable
             .height(80.dp)
             .clip(RoundedCornerShape(12.dp)),
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFFFFFDE7)
+            containerColor = Color(0xFFEEDEF6)
         ) // Light Yellow
     ) {
         Row(
@@ -133,7 +134,15 @@ fun AdminAppItem(app: ApplicationInfo, pm: PackageManager, approvedApps: Mutable
                     } else {
                         approvedApps.remove(app.packageName)
                     }
-                }
+                },
+                colors = SwitchDefaults.colors(
+                    checkedThumbColor = Color.White,     // Thumb when ON
+                    uncheckedThumbColor = Color.White,   // Thumb when OFF
+                    checkedTrackColor = Color.Black,     // Track when ON
+                    uncheckedTrackColor = Color.Black,    // Track when OFF
+                    checkedBorderColor = Color.White,
+                    uncheckedBorderColor = Color.White
+                )
             )
         }
     }

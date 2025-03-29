@@ -1,4 +1,4 @@
-package com.example.kidstvlauncher.ui
+package com.example.kidstvlauncher.ui.data
 
 data class AppItem(
     val appName: String,
