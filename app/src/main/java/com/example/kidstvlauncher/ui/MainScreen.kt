@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -34,6 +35,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -61,6 +63,9 @@ fun MainScreen(navController: NavController, approvedApps: MutableSet<String>) {
             modifier = Modifier
                 .padding(top = 24.dp)
                 .align(Alignment.CenterHorizontally)
+                .clickable {
+                    navController.navigate("adminPin")
+                }
         )
 
         LazyVerticalGrid(
@@ -74,19 +79,28 @@ fun MainScreen(navController: NavController, approvedApps: MutableSet<String>) {
             }
         }
 
-        Button(
-            onClick = { navController.navigate("adminPin") },
-            modifier = Modifier
-                .padding(16.dp)
-                .fillMaxWidth()
-                .height(50.dp)
-                .clip(RoundedCornerShape(12.dp)),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFF1E88E5) // Blue Button
-            )
-        ) {
-            Text("Admin Mode", color = Color.White, fontSize = 18.sp)
-        }
+//        Box(
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .height(50.dp)
+//                .padding(8.dp)
+//        ) {
+//            // Hidden Admin Button placed at bottom-right corner
+//            Box(
+//                modifier = Modifier
+//                    .size(24.dp) // Small invisible button
+//                    .align(Alignment.CenterStart)
+//                    .clickable(onClick = { navController.navigate("adminPin") })
+//                    .alpha(0f) // Invisible but clickable
+//            ) {
+//                // Optional placeholder (can be removed if not needed)
+//                Text(
+//                    text = "Hidden",
+//                    fontSize = 1.sp,
+//                    color = Color.Transparent
+//                )
+//            }
+//        }
     }
 }
 
